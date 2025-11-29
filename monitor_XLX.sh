@@ -16,8 +16,8 @@ CHAT_ID="1074921232"
 TEMP_FILE="/tmp/xlxd_last_events"
 touch "$TEMP_FILE"
 
-# Lista de repetidoras a monitorar para eventos de conexão e desconexão
-REPEATER_LIST="PA7LIM|F4WCP|PU2UOL|PU2VLO|PP5CPI|PY2KES|PY2KGV|PY2KPE|PY4ALV|PY4DIG|PY4KBH|PY4KDA|PY4KID|PY4RDI|PY4RFM|PY4RPF|PY4RPV"
+# Lista de repetidoras a monitorar para eventos de conexão e desconexão (Foi retirada da lista a repetidora PY4DIG por não mostrar uma conexão estavel)
+REPEATER_LIST="KT4K|PU2UOL|PU2VLO|PA7LIM|F4WCP|M0WVV|MXOWVV|PP5CPI|PS7BBB|PY2KES|PY2KGV|PY2KJP|PY2KPE|PY4ALV|PY4KBH|PY4KDA|PY4KID|PY4RDI|PY4RFM|PY4RPF|PY4RPV"
 
 # Variável para ativar/desativar debug (0 = desativado, 1 = ativado)
 DEBUG=0
@@ -80,9 +80,9 @@ format_message() {
     local TIMESTAMP="$1" INDICATIVO="$2" SUFIXO="$3" IP="$4" PROTOCOLO="$5" ACTION="$6" MODULO="$7"
     SUFIXO=$(echo "$SUFIXO" | sed 's/^\s*\/\s*//;s/^\s*//;s/\s*$//')
     if [ -z "$SUFIXO" ]; then
-        echo "$TIMESTAMP - A Estação <a href=\"https://www.qrz.com/db/$INDICATIVO\">$INDICATIVO</a>, IP $IP ($PROTOCOLO) - $ACTION${MODULO:+-}$MODULO"
+        echo "$TIMESTAMP - A Repetidora <a href=\"https://www.qrz.com/db/$INDICATIVO\">$INDICATIVO</a>, IP $IP ($PROTOCOLO) - $ACTION${MODULO:+-}$MODULO"
     else
-        echo "$TIMESTAMP - A Estação <a href=\"https://www.qrz.com/db/$INDICATIVO\">$INDICATIVO</a>-$SUFIXO, IP $IP ($PROTOCOLO) - $ACTION${MODULO:+-}$MODULO"
+        echo "$TIMESTAMP - A Repetidora <a href=\"https://www.qrz.com/db/$INDICATIVO\">$INDICATIVO</a>-$SUFIXO, IP $IP ($PROTOCOLO) - $ACTION${MODULO:+-}$MODULO"
     fi
 }
 
@@ -110,10 +110,17 @@ sudo journalctl -u xlxd.service -f | while read -r LINE; do
 
         debug "Gatekeeper: Timestamp: $TIMESTAMP_ORIGINAL, Ação: $ACAO, Indicativo: $INDICATIVO, Sufixo: '$SUFIXO', IP: $IP, Protocolo: $PROTOCOLO"
 
+        # Limpa o sufixo
+        SUFIXO=$(echo "$SUFIXO" | sed 's/^\s*\/\s*//;s/^\s*//;s/\s*$//')
+
         TIMESTAMP_FORMATTED=$(format_timestamp "$TIMESTAMP_ORIGINAL")
         PROTOCOLO_NAME=$(get_protocol_name "$PROTOCOLO")
         ACAO_FORMATADA=$([[ "$ACAO" == "linking" ]] && echo "Tentativa de conexão no XLX300" || echo "Tentativa de transmissão no XLX300")
-        MESSAGE=$(format_message "$TIMESTAMP_FORMATTED" "$INDICATIVO" "$SUFIXO" "$IP" "$PROTOCOLO_NAME" "$ACAO_FORMATADA" "")
+        if [ -z "$SUFIXO" ]; then
+            MESSAGE="$TIMESTAMP_FORMATTED - <a href=\"https://www.qrz.com/db/$INDICATIVO\">$INDICATIVO</a>, IP $IP ($PROTOCOLO_NAME) - $ACAO_FORMATADA"
+        else
+            MESSAGE="$TIMESTAMP_FORMATTED - <a href=\"https://www.qrz.com/db/$INDICATIVO\">$INDICATIVO</a>/$SUFIXO, IP $IP ($PROTOCOLO_NAME) - $ACAO_FORMATADA"
+        fi
 
         CURRENT_TIME=$(date +%s)
         BLOCK_EVENT=false
