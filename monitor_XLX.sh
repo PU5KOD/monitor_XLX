@@ -9,7 +9,7 @@ if ! command -v curl >/dev/null 2>&1; then
 fi
 
 # Configurações do Telegram
-TELEGRAM_API="https://api.telegram.org/bot7799817359:AAH30CNwb9yEo8AHR0UWwL57KNx_S09o3U0/sendMessage"
+TELEGRAM_API="8543190228:AAGCQ3W26_hOPIyiCyQIOE858B3nPg9vpjo"
 CHAT_ID="1074921232"
 
 # Arquivo temporário para armazenar os últimos eventos e evitar mensagens repetidas
@@ -89,7 +89,7 @@ format_message() {
 # Função para enviar mensagem ao Telegram
 send_telegram_message() {
     local MESSAGE="$1"
-    curl -s -X POST "$TELEGRAM_API" \
+    curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_API/sendMessage" \
         -d chat_id="$CHAT_ID" \
         -d text="$MESSAGE" \
         -d parse_mode=HTML
