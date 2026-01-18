@@ -9,8 +9,8 @@ if ! command -v curl >/dev/null 2>&1; then
 fi
 
 # Configurações do Telegram
-TELEGRAM_API="8543190228:AAGCQ3W26_hOPIyiCyQIOE858B3nPg9vpjo"
-CHAT_ID="1074921232"
+TELEGRAM_API="Set_your_API_here"
+CHAT_ID="Set_your_ChatID_here"
 
 # Arquivo temporário para armazenar os últimos eventos e evitar mensagens repetidas
 TEMP_FILE="/tmp/xlxd_last_events"
