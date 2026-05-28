@@ -1,5 +1,5 @@
 # Telegram bot credentials
-TELEGRAM_API="YOUR_TOKEN_HERE"
+TELEGRAM_API="YOUR_API_TOKEN_HERE"
 CHAT_ID="YOUR_CHAT_ID_HERE"
 
 # Reflector name as it will appear in messages (e.g., XLX300, XLXBRA)
@@ -9,7 +9,7 @@ REF_NAME="XLX300"
 ENABLE_PREVIEW=0
 
 # Callsigns of repeaters to monitor, separated by |
-REPEATER_LIST="PP5KX|PY5KOD|PY0ABC|..."
+REPEATER_LIST="KW1Q|VE3QSL|PP5PK|etc..."
 
 # Script debug mode: 1 = enabled, 0 = disabled
 DEBUG=0
