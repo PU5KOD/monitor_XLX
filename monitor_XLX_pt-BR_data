@@ -1,15 +1,15 @@
-# Dados do bot Telegram
+# Dados do bot no Telegram
 TELEGRAM_API="SEU_TOKEN_AQUI"
 CHAT_ID="SEU_CHAT-ID-AQUI"
 
-# Nome do Reletor que deve ser exibido nas mensagens (ex., XLX300, XLXBRA)
+# Nome do Reletor para ser exibido nas mensagens (ex., XLX300, XLXBRA)
 REF_NAME="XLX300"
 
-# Parâmetro para ativar/desativar o card (preview do link): 1 = ativado, 0 = desativado)
+# Parâmetro para ativar/desativar o card do QRZ no Telegram (preview do link): 1 = ativado, 0 = desativado)
 ENABLE_PREVIEW=0
 
-# Lista de repetidoras a monitorar para eventos de conexão e desconexão (Foi retirada da lista a repetidora PY4DIG por não mostrar uma conexão estavel)
-REPEATER_LIST="PY0ABC|PP5QRV|PQ8XXX|etc..."
+# Lista dos indicativos para monitorar eventos de conexão e desconexão
+REPEATER_LIST="PY0ABC|PP5QRV|PQ8XXX"
 
-# Variável para ativar/desativar debug (0 = desativado, 1 = ativado)
+# Variável para ativar/desativar debug no log (0 = desativado, 1 = ativado)
 DEBUG=0
