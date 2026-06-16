@@ -2,14 +2,14 @@
 TELEGRAM_API="YOUR_API_TOKEN_HERE"
 CHAT_ID="YOUR_CHAT_ID_HERE"
 
-# Reflector name as it will appear in messages (e.g., XLX300, XLXBRA)
+# Reflector name it will appear in messages (e.g., XLX300, XLXBRA)
 REF_NAME="XLX300"
 
-# QRZ.com preview card in messages: 1 = enabled, 0 = disabled
+# QRZ preview card in messages: 1 = enabled, 0 = disabled
 ENABLE_PREVIEW=0
 
 # Callsigns of repeaters to monitor, separated by |
-REPEATER_LIST="KW1Q|VE3QSL|PP5PK|etc..."
+REPEATER_LIST="KW1Q|VE3QSL|PP5PK"
 
 # Script debug mode: 1 = enabled, 0 = disabled
 DEBUG=0
