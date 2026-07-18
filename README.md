@@ -133,20 +133,20 @@ sudo git clone https://github.com/PP5PK/monitor_XLX.git
 cd monitor_XLX
 ```
 
-### 2. Edit the configuration file
-
-Fill in the token and chat ID obtained in the steps above and adjust any other options as needed:
-
-```bash
-sudo nano monitor_XLX_data
-```
-
-### 3. Copy the files
+### 2. Copy the files
 
 ```bash
 sudo cp monitor_XLX.sh /usr/local/bin/monitor_XLX.sh
 sudo cp monitor_XLX_data /usr/local/bin/monitor_XLX_data
 sudo chmod +x /usr/local/bin/monitor_XLX.sh
+```
+
+### 3. Edit the configuration file
+
+Fill in the token and chat ID obtained in the steps above and adjust any other options as needed:
+
+```bash
+sudo nano /usr/local/bin/monitor_XLX_data
 ```
 
 ### 4. Install the systemd service
