@@ -136,9 +136,9 @@ cd monitor_XLX
 ### 2. Copy the files
 
 ```bash
+sudo chmod +x *.sh
 sudo cp monitor_XLX.sh /usr/local/bin/monitor_XLX.sh
 sudo cp monitor_XLX_data /usr/local/bin/monitor_XLX_data
-sudo chmod +x /usr/local/bin/monitor_XLX.sh
 ```
 
 ### 3. Edit the configuration file
