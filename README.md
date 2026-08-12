@@ -139,6 +139,7 @@ cd monitor_XLX
 sudo chmod +x *.sh
 sudo cp monitor_XLX.sh /usr/local/bin/monitor_XLX.sh
 sudo cp monitor_XLX_data /usr/local/bin/monitor_XLX_data
+sudo cp monitor_XLX.service /etc/systemd/system/monitor_XLX.service
 ```
 
 ### 3. Edit the configuration file
@@ -152,7 +153,6 @@ sudo nano /usr/local/bin/monitor_XLX_data
 ### 4. Install the systemd service
 
 ```bash
-sudo cp monitor_XLX.service /etc/systemd/system/monitor_XLX.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now monitor_XLX.service
 ```
