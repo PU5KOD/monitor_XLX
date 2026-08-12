@@ -5,7 +5,7 @@ A Bash monitoring bot for the **xlxd** service that automatically sends **Telegr
 - A station is **blocked by the Gatekeeper** (unauthorized linking or transmitting attempt)
 - A repeater from the **monitoring list** **connects** or **disconnects** from the reflector
 
-> Developed by **PP5KX** for use in the XLX300 reflector infrastructure.
+> Developed by **PP5PK** for use in the XLX300 reflector infrastructure.
 
 ---
 
