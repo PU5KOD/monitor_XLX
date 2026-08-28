@@ -293,5 +293,5 @@ With debug enabled, every captured journal line and all regex match groups are l
 
 ## 📜 License
 
-Distributed under the **MIT** License.  
-Developed by [PP5KX](https://pp5kx.net) — Mafra, Santa Catarina, Brazil.
+Distributed under the **The Unlicense** License.  
+Developed by [PP5PK](https://pp5pk.net) — Mafra, Santa Catarina, Brazil.
